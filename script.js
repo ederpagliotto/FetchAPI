@@ -46,3 +46,17 @@ precoBTC();
 // Utilizando a API https://api.chucknorris.io/jokes/random
 // retorne uma piada randomica do chucknorris, toda vez que
 // clicar em próxima
+
+const jokes = document.querySelector('.jokes');
+const btnJokes = document.querySelector('.btnJokes');
+
+function jokesCN() {
+  fetch('https://api.chucknorris.io/jokes/random')
+    .then((response) => {
+      return response.json();
+    })
+    .then((json) => {
+      jokes.innerText = json.value;
+    });
+}
+btnJokes.addEventListener('click', jokesCN);
