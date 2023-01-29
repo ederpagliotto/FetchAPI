@@ -23,3 +23,26 @@ function buscaCep(cep) {
       resultadoCep.innerText = body;
     });
 }
+
+// Utilizando a API https://blockchain.info/ticker
+// retorne no DOM o valor de compra da bitcoin and reais.
+// atualize este valor a cada 30s
+valorBTC = document.querySelector('.valorBTC');
+
+function precoBTC() {
+  fetch('https://blockchain.info/ticker')
+    .then((response) => {
+      return response.json();
+    })
+    .then((json) => {
+      valorBTC.innerText = ('R$ ' + json.BRL.buy).replace('.', ',');
+    });
+}
+
+//setInterval(precoBTC, 1000 * 30);
+
+precoBTC();
+
+// Utilizando a API https://api.chucknorris.io/jokes/random
+// retorne uma piada randomica do chucknorris, toda vez que
+// clicar em próxima
