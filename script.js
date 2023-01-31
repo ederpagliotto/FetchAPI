@@ -1,4 +1,4 @@
-// Utilizando a API https://viacep.com.br/ws/${CEP}/json/
+/* // Utilizando a API https://viacep.com.br/ws/${CEP}/json/
 // crie um formulário onde o usuário pode digitar o cep
 // e o endereço completo é retornado ao clicar em buscar
 
@@ -59,4 +59,13 @@ function jokesCN() {
       jokes.innerText = json.value;
     });
 }
-btnJokes.addEventListener('click', jokesCN);
+btnJokes.addEventListener('click', jokesCN); */
+
+async function puxarDados() {
+  const responseDados = await fetch('./dados.json');
+  const jsonDados = await responseDados.json();
+
+  document.body.innerHTML = jsonDados.aula;
+}
+
+puxarDados();
