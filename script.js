@@ -62,12 +62,12 @@ function jokesCN() {
 btnJokes.addEventListener('click', jokesCN); */
 
 async function puxarDados() {
-  try {
-    const dadosTeste = await fetch('./dados.json');
-    const resultadoTeste = await dadosTeste.json();
-    document.body.innerHTML = resultadoTeste.aula;
-  } catch {
-    console.log('Erro de caminho!');
-  }
+  const dadosTeste = fetch('./dados.json');
+  const clientesTeste = fetch('./clientes.json');
+
+  const jsonDadosTeste = await (await dadosTeste).json();
+  const jsonClientesTeste = await (await clientesTeste).json();
+  console.log(jsonDadosTeste);
+  console.log(jsonClientesTeste);
 }
 puxarDados();
